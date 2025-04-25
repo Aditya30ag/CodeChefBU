@@ -68,13 +68,13 @@ export function NavbarDemo() {
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 variant="primary"
                                 className="w-full">
-                                Login
+                                Contests
                             </NavbarButton>
                             <NavbarButton
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 variant="primary"
                                 className="w-full">
-                                Book a call
+                                Join Us
                             </NavbarButton>
                         </div>
                     </MobileNavMenu>

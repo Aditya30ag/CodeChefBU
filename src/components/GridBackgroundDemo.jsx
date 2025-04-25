@@ -172,20 +172,14 @@ export function GridBackgroundDemo() {
                 className="relative -top-20 flex h-[46rem] min-w-screen items-center justify-center bg-white dark:bg-black overflow-hidden"
             >
                 <div
-                    className={cn(
-                        "absolute inset-0",
-                        "[background-size:40px_40px]",
-                        "[background-image:linear-gradient(to_right,#E5E5EB_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-                        "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
-                        "animate-movingLight",
-                        "bg-opacity-60", // Increases brightness by controlling opacity
-                        "hover:bg-opacity-100", // Makes the background brighter on hover
-                        "transition-all duration-200" // Smooth transition on hover
-                    )}
-                    style={{
-                        animation: "moveSnake 5s linear infinite", // Adds a snake-like movement
-                    }}
-                />
+className={cn(
+    "absolute inset-0",
+    "[background-size:40px_40px]",
+    "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+    "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
+    "animate-movingLight"
+)}
+/>
 
 
                 {/* Mouse position radial gradient */}
