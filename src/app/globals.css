@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: black;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: black;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Styling the scrollbar */
+::-webkit-scrollbar {
+  width: 5px; /* Width of the vertical scrollbar */
+  height: 5px; /* Height of the horizontal scrollbar */
+}
+
+/* Track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: black; /* Light grey background for the track */
+  border-radius: 10px;
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Darker grey for the thumb */
+  border-radius: 10px;
+}
+
+/* Handle when hovering */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker thumb when hovering */
+}
+
+/* Optional: Style for the horizontal scrollbar */
+::-webkit-scrollbar-horizontal {
+  height: 8px; /* Smaller height for the horizontal scrollbar */
+}
+
+/* Optional: Style for the scrollbar corner (where horizontal and vertical meet) */
+::-webkit-scrollbar-corner {
+  background: #f1f1f1;
+}
+
+*{
+  cursor: url("/image.png"), auto;
+}
+
+@theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+ 
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid #e5e7eb; /* Tailwind border-gray-200 */
+  padding-bottom: 1rem; /* Adjust as needed */
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 2rem; /* Equivalent to Tailwind's space-x-8 */
+  animation: marquee 15s linear infinite;
+}
