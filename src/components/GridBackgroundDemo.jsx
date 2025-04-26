@@ -147,7 +147,7 @@ export function GridBackgroundDemo() {
     return (
         <>
             <div
-                className="relative -top-20 flex h-screen min-w-screen items-center justify-center bg-white dark:bg-black overflow-hidden"
+                className="relative -top-40 flex h-screen min-w-screen items-center justify-center bg-white dark:bg-black overflow-hidden"
             >
                 <div
                     className={cn(
