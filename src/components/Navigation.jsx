@@ -89,7 +89,7 @@ export function NavbarDemo() {
 const DummyContent = () => {
     return (
         <div className="container pt-24">
-            <div className="min-h-screen z-40">
+            <div className="min-h-screen min-w-screen z-40">
                 <GridBackgroundDemo/>
             </div>
         </div>

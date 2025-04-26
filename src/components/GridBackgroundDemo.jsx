@@ -4,6 +4,7 @@ import { TextGenerateEffectDemo } from "./TextGenerateEffectDemo";
 import { ParallaxScrollDemo } from "./ParallaxScrollDemo";
 import { VortexDemo } from "./VortexDemo";
 import SlidingPanel, { GetSetComponent } from "./GetSetComponent";
+import PastEvents from "./PastEvents";
 
 export function GridBackgroundDemo() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -26,19 +27,17 @@ export function GridBackgroundDemo() {
         style.textContent = `
 @keyframes shootingStar {
     0% {
-        transform: translate(0, 0) rotate(135deg);
+        transform: translate(0, 0) rotate(-45deg); /* Correct angle */
         opacity: 0;
     }
-    10% {
+    5% {
         opacity: 1;
     }
     100% {
-        transform: translate(-100vw, 100vh) rotate(135deg);
+        transform: translate(-150vw, 150vh) rotate(-45deg); /* Move further across */
         opacity: 0;
     }
 }
-
-
 
 .shooting-star-container {
     position: absolute;
@@ -51,18 +50,17 @@ export function GridBackgroundDemo() {
     z-index: 50;
 }
 
-
 .shooting-star {
     position: absolute;
-    width: 4px;  /* Increased size */
-    height: 4px; /* Increased size */
-    background: rgba(255, 255, 255, 0.9); /* Brighter base color */
+    width: 3px; 
+    height: 3px;
+    background: rgba(255, 255, 255, 1);
     border-radius: 50%;
     z-index: 50;
     box-shadow:
-        0 0 10px rgba(255, 255, 255, 0.8),      /* Brighter, larger glow */
-        0 0 20px rgba(150, 240, 255, 0.6),      /* Lighter blue glow */
-        0 0 30px rgba(150, 240, 255, 0.4);      /* Faded blue glow */
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(150, 240, 255, 0.6),
+        0 0 30px rgba(150, 240, 255, 0.4);
 }
 
 .shooting-star::before {
@@ -71,65 +69,45 @@ export function GridBackgroundDemo() {
     top: 50%;
     left: 100%;
     transform: translateY(-50%);
-    width: 80px;    /* Longer tail */
-    height: 1px;
+    width: 120px;  /* Longer and smoother trail */
+    height: 2px;
     background: linear-gradient(270deg, 
-        rgba(255, 255, 255, 1), 
-        rgba(255, 255, 255, 0.7) 40%, 
-        rgba(255, 255, 255, 0.4) 70%, 
+        rgba(255, 255, 255, 1),
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.2),
         transparent);
-    transform: translateY(-50%) rotate(180deg);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 40%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
+.star-1, .star-2, .star-3, .star-4, .star-5 {
+    right: -50px; /* start slightly off-screen */
+    animation: shootingStar linear infinite;
+}
 
 .star-1 {
-    top: 10%;
-    right: -60px;
-    animation: shootingStar 6s linear infinite;
+    top: 5%;
+    animation-duration: 6s;
     animation-delay: 0s;
 }
 .star-2 {
-    top: 30%;
-    right: -60px;
-    animation: shootingStar 7s linear infinite;
+    top: 15%;
+    animation-duration: 7s;
     animation-delay: 2s;
 }
 .star-3 {
-    top: 20%;
-    right: -60px;
-    animation: shootingStar 5s linear infinite;
+    top: 25%;
+    animation-duration: 8s;
     animation-delay: 4s;
 }
 .star-4 {
-    top: 40%;
-    right: -60px;
-    animation: shootingStar 8s linear infinite;
-    animation-delay: 3s;
-}
-.star-7 {
-    top: 50%;
-    right: -60px;
-    animation: shootingStar 9s linear infinite;
-    animation-delay: 1s;
-}
-.star-8 {
     top: 35%;
-    right: -70px;
-    animation: shootingStar 6s linear infinite;
-    animation-delay: 5s;
+    animation-duration: 9s;
+    animation-delay: 6s;
 }
-.star-9 {
-    top: 60%;
-    right: -80px;
-    animation: shootingStar 7s linear infinite;
-    animation-delay: 4s;
-}
-.star-10 {
+.star-5 {
     top: 45%;
-    right: -75px;
-    animation: shootingStar 6s linear infinite;
-    animation-delay: 2s;
+    animation-duration: 7s;
+    animation-delay: 3s;
 }
 
 @keyframes movingLight {
@@ -172,14 +150,14 @@ export function GridBackgroundDemo() {
                 className="relative -top-20 flex h-[46rem] min-w-screen items-center justify-center bg-white dark:bg-black overflow-hidden"
             >
                 <div
-className={cn(
-    "absolute inset-0",
-    "[background-size:40px_40px]",
-    "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-    "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
-    "animate-movingLight"
-)}
-/>
+                    className={cn(
+                        "absolute inset-0",
+                        "[background-size:40px_40px]",
+                        "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+                        "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
+                        "animate-movingLight"
+                    )}
+                />
 
 
                 {/* Mouse position radial gradient */}
@@ -191,16 +169,12 @@ className={cn(
                 />
 
                 {/* Shooting Stars Effect */}
-                <div className="absolute bottom-0 shooting-star-container">
+                <div className="absolute shooting-star-container">
                     <div className="shooting-star star-1"></div>
                     <div className="shooting-star star-2"></div>
                     <div className="shooting-star star-3"></div>
                     <div className="shooting-star star-4"></div>
-                    <div className="shooting-star star-7"></div>
-                    <div className="shooting-star star-8"></div>
-                    <div className="shooting-star star-9"></div>
-                    <div className="shooting-star star-10"></div>
-
+                    <div className="shooting-star star-5"></div>
                 </div>
 
                 {/* Radial gradient for the container to give a faded look */}
@@ -220,17 +194,19 @@ className={cn(
                     </div>
                 </div>
                 <div className="absolute -bottom-10 flex items-center justify-center">
-                <SlidingPanel/>
+                    <SlidingPanel />
+                </div>
             </div>
-            </div>
-                    
+
             <div>
                 <VortexDemo />
             </div>
             <div className="relative z-20 min-h-screen min-w-screen">
                 <ParallaxScrollDemo />
             </div>
-            
+            <div className="min-w-screen  mt-10">
+                <PastEvents />
+            </div>
         </>
 
     );
