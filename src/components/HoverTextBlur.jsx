@@ -479,7 +479,7 @@ export default function DotText() {
             </div>
 
 
-                <button className="w-full text-center flex justify-center items-center" onClick={() => window.open("https://www.codechef.com/", "_blank")}>
+                <button className="w-full text-center flex justify-center items-center mt-4" onClick={() => window.open("https://www.codechef.com/", "_blank")}>
                     <div className="text-xl font-stretch-50% text-white bg-clip-text transition-all duration-300 ease-in-out px-6 py-2 rounded-full cursor-pointer hover:scale-105 hover:shadow-lg font-sans"
                         style={{
                             fontFamily: "'Poppins', sans-serif",
