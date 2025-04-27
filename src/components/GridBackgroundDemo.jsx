@@ -183,46 +183,46 @@ export function GridBackgroundDemo() {
                 <div
                     className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"
                 />
-                 <div className="absolute -top-20 inset-0 flex flex-col items-center justify-center">
-      <div className="flex flex-col items-center justify-center">
-        <p
-          className="relative z-20 py-8 text-4xl font-bold sm:text-7xl"
-          style={{
-            color: "#ffffff",
-            textShadow: `
-              0 1px 0 #cccccc,
-              0 2px 0 #c9c9c9,
-              0 3px 0 #bbb,
-              0 4px 0 #b9b9b9,
-              0 5px 0 #aaa,
-              0 6px 1px rgba(0,0,0,.1),
-              0 0 5px rgba(0,0,0,.1),
-              0 1px 3px rgba(0,0,0,.3),
-              0 3px 5px rgba(0,0,0,.2),
-              0 5px 10px rgba(0,0,0,.25),
-              0 10px 10px rgba(0,0,0,.2),
-              0 20px 20px rgba(0,0,0,.15)
-            `,
-            transform: "perspective(500px) rotateX(5deg)",
-            transformStyle: "preserve-3d",
-            animation: "float3d 6s ease-in-out infinite"
-          }}
-        >
-          CodeChef BU
-        </p>
-      </div>
-      <div className="z-40 text-center">
-        <TextGenerateEffectDemo />
-      </div>
-      
-      <style jsx>{`
-        @keyframes float3d {
-          0% { transform: perspective(500px) rotateX(5deg) translateY(0); }
-          50% { transform: perspective(500px) rotateX(10deg) translateY(-10px); }
-          100% { transform: perspective(500px) rotateX(5deg) translateY(0); }
-        }
-      `}</style>
-    </div>
+                <div className="absolute -top-20 inset-0 flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center justify-center">
+                        <p
+                            className="relative z-20 py-8 text-4xl font-bold sm:text-7xl"
+                            style={{
+                                color: "#ffffff",
+                                textShadow: `
+                                    0 1px 0 #cccccc,
+                                    0 2px 0 #c9c9c9,
+                                    0 3px 0 #bbb,
+                                    0 4px 0 #b9b9b9,
+                                    0 5px 0 #aaa,
+                                    0 6px 1px rgba(0,0,0,.1),
+                                    0 0 5px rgba(0,0,0,.1),
+                                    0 1px 3px rgba(0,0,0,.3),
+                                    0 3px 5px rgba(0,0,0,.2),
+                                    0 5px 10px rgba(0,0,0,.25),
+                                    0 10px 10px rgba(0,0,0,.2),
+                                    0 20px 20px rgba(0,0,0,.15)
+                                    `,
+                                transform: "perspective(500px) rotateX(5deg)",
+                                transformStyle: "preserve-3d",
+                                animation: "float3d 6s ease-in-out infinite"
+                            }}
+                        >
+                            CodeChef BU
+                        </p>
+                    </div>
+                    <div className="z-40 text-center">
+                        <TextGenerateEffectDemo />
+                    </div>
+
+                    <style jsx>{`
+                    @keyframes float3d {
+                    0% { transform: perspective(500px) rotateX(5deg) translateY(0); }
+                    50% { transform: perspective(500px) rotateX(10deg) translateY(-10px); }
+                    100% { transform: perspective(500px) rotateX(5deg) translateY(0); }
+                    }
+                `}</style>
+                </div>
                 <div className="absolute -bottom-10 flex items-center justify-center">
                     <SlidingPanel />
                 </div>
@@ -238,10 +238,10 @@ export function GridBackgroundDemo() {
                 <PastEvents />
             </div>
             <div className="relative min-w-screen z-20 " id="getset">
-                <DotText/>
+                <DotText />
             </div>
             <div>
-                <Footer/>
+                <Footer />
             </div>
             <div className="absolute inset-0 border-4 border-white rounded-lg animate-snake-border  "></div>
 
