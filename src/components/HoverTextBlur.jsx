@@ -480,27 +480,27 @@ export default function DotText() {
 
 
             <div className="w-full flex justify-center items-center mt-4 select-none cursor-pointer">
-      <div className="relative font-bold text-2xl transition-all duration-700 ease-in-out transform hover:scale-105"
-        style={{
-          fontFamily: "'Poppins', sans-serif",
-          color: "#ffffff",
-          textShadow: "0 0 5px rgba(255, 255, 255, 0.3), 1px 1px 0 #ccc, 2px 2px 0 #aaa, 3px 3px 0 #888, 4px 4px 0 #777, 5px 5px 10px rgba(0, 0, 0, 0.5)",
-          animation: "float3d 4s ease-in-out infinite",
-        }}
-        onClick={() => window.open("https://www.codechef.com/", "_blank")}
-      >
-        DO IT OR ELSE
-      </div>
-      <style jsx>{`
-        @keyframes float3d {
-          0% { transform: translateY(0) translateZ(0) rotateX(0deg); }
-          25% { transform: translateY(-3px) translateZ(5px) rotateX(3deg); }
-          50% { transform: translateY(-5px) translateZ(10px) rotateX(5deg); }
-          75% { transform: translateY(-3px) translateZ(5px) rotateX(3deg); }
-          100% { transform: translateY(0) translateZ(0) rotateX(0deg); }
-        }
-      `}</style>
-    </div>
+                <div className="relative font-bold text-2xl transition-all duration-700 ease-in-out transform hover:scale-105 cursor-pointer"
+                    style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        color: "#ffffff",
+                        textShadow: "0 0 5px rgba(255, 255, 255, 0.3), 1px 1px 0 #ccc, 2px 2px 0 #aaa, 3px 3px 0 #888, 4px 4px 0 #777, 5px 5px 10px rgba(0, 0, 0, 0.5)",
+                        animation: "float3d 4s ease-in-out infinite",
+                    }}
+                    onClick={() => window.open("https://www.codechef.com/", "_blank")}
+                >
+                    DO IT OR ELSE
+                </div>
+                <style jsx>{`
+                    @keyframes float3d {
+                    0% { transform: translateY(0) translateZ(0) rotateX(0deg); }
+                    25% { transform: translateY(-3px) translateZ(5px) rotateX(3deg); }
+                    50% { transform: translateY(-5px) translateZ(10px) rotateX(5deg); }
+                    75% { transform: translateY(-3px) translateZ(5px) rotateX(3deg); }
+                    100% { transform: translateY(0) translateZ(0) rotateX(0deg); }
+                    }
+                `}</style>
+            </div>
 
 
 

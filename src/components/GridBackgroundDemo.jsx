@@ -205,7 +205,7 @@ export function GridBackgroundDemo() {
                                     `,
                                 transform: "perspective(500px) rotateX(5deg)",
                                 transformStyle: "preserve-3d",
-                                animation: "float3d 6s ease-in-out infinite"
+                                animation: "float3d 4s ease-in-out infinite"
                             }}
                         >
                             CodeChef BU
@@ -218,7 +218,7 @@ export function GridBackgroundDemo() {
                     <style jsx>{`
                     @keyframes float3d {
                     0% { transform: perspective(500px) rotateX(5deg) translateY(0); }
-                    50% { transform: perspective(500px) rotateX(10deg) translateY(-10px); }
+                    50% { transform: perspective(500px) rotateX(10deg) translateY(-20px); }
                     100% { transform: perspective(500px) rotateX(5deg) translateY(0); }
                     }
                 `}</style>
