@@ -479,21 +479,29 @@ export default function DotText() {
             </div>
 
 
-                <button className="w-full text-center flex justify-center items-center mt-4" onClick={() => window.open("https://www.codechef.com/", "_blank")}>
-                    <div className="text-xl font-stretch-50% text-white bg-clip-text transition-all duration-300 ease-in-out px-6 py-2 rounded-full cursor-pointer hover:scale-105 hover:shadow-lg font-sans"
-                        style={{
-                            fontFamily: "'Poppins', sans-serif",
-                            border: "2px solid rgba(255, 255, 255, 0.3)",
-                            borderRadius: "50px",
-                            boxShadow: "0 4px 15px rgba(255, 255, 255, 0.2)",
-                            background: "rgba(255, 255, 255, 0.1)",
-                            backdropFilter: "blur(5px)",
-                            textShadow: "0 2px 4px rgba(0, 0, 0, 0.2)"
-                        }}>
-                        DO IT OR ELSE
-                        <p className="text-center">(ノಠ ∩ಠ)ノ</p>
-                    </div>
-                </button>
+            <div className="w-full flex justify-center items-center mt-4 select-none cursor-pointer">
+      <div className="relative font-bold text-2xl transition-all duration-700 ease-in-out transform hover:scale-105"
+        style={{
+          fontFamily: "'Poppins', sans-serif",
+          color: "#ffffff",
+          textShadow: "0 0 5px rgba(255, 255, 255, 0.3), 1px 1px 0 #ccc, 2px 2px 0 #aaa, 3px 3px 0 #888, 4px 4px 0 #777, 5px 5px 10px rgba(0, 0, 0, 0.5)",
+          animation: "float3d 4s ease-in-out infinite",
+        }}
+        onClick={() => window.open("https://www.codechef.com/", "_blank")}
+      >
+        DO IT OR ELSE
+      </div>
+      <style jsx>{`
+        @keyframes float3d {
+          0% { transform: translateY(0) translateZ(0) rotateX(0deg); }
+          25% { transform: translateY(-3px) translateZ(5px) rotateX(3deg); }
+          50% { transform: translateY(-5px) translateZ(10px) rotateX(5deg); }
+          75% { transform: translateY(-3px) translateZ(5px) rotateX(3deg); }
+          100% { transform: translateY(0) translateZ(0) rotateX(0deg); }
+        }
+      `}</style>
+    </div>
+
 
 
         </div>

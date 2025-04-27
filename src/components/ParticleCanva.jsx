@@ -4,16 +4,13 @@ export default function WhiteDottedBackground() {
     const containerRef = useRef(null);
     const [dots, setDots] = useState([]);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-    // Generate initial dots
     useEffect(() => {
         const updateDimensions = () => {
             if (containerRef.current) {
                 const { clientWidth, clientHeight } = containerRef.current;
-                setDimensions({ width: clientWidth, height: clientHeight });
 
-                const dotCount = Math.floor((clientWidth * clientHeight) / 5000);
+                const dotCount = Math.floor((clientWidth * clientHeight) / 4000); // More dense
                 const newDots = [];
 
                 for (let i = 0; i < dotCount; i++) {
@@ -21,8 +18,10 @@ export default function WhiteDottedBackground() {
                         id: i,
                         x: Math.random() * clientWidth,
                         y: Math.random() * clientHeight,
-                        size: Math.random() * 3 + 2,
-                        opacity: Math.random() * 0.3 + 0.1,
+                        size: Math.random() * 2 + 1,
+                        opacity: Math.random() * 0.7 + 0.3,
+                        color: getRandomStarColor(),
+                        flickerSpeed: Math.random() * 2 + 1, // Flicker speed
                         originalX: Math.random() * clientWidth,
                         originalY: Math.random() * clientHeight,
                         vx: 0,
@@ -33,6 +32,11 @@ export default function WhiteDottedBackground() {
             }
         };
 
+        const getRandomStarColor = () => {
+            const colors = ['#ffffff', '#a0c4ff', '#bdb2ff', '#ffc6ff', '#9bf6ff', '#caffbf'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        };
+
         updateDimensions();
         window.addEventListener('resize', updateDimensions);
 
@@ -41,7 +45,6 @@ export default function WhiteDottedBackground() {
         };
     }, []);
 
-    // Handle mouse movement
     useEffect(() => {
         const handleMouseMove = (e) => {
             if (!containerRef.current) return;
@@ -59,7 +62,6 @@ export default function WhiteDottedBackground() {
         };
     }, []);
 
-    // Smooth update of dots
     useEffect(() => {
         if (dots.length === 0) return;
 
@@ -70,7 +72,7 @@ export default function WhiteDottedBackground() {
                     const dy = mousePosition.y - dot.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    const radius = 150;
+                    const radius = 120;
 
                     let vx = dot.vx;
                     let vy = dot.vy;
@@ -78,17 +80,15 @@ export default function WhiteDottedBackground() {
                     if (distance < radius) {
                         const force = (radius - distance) / radius;
                         const angle = Math.atan2(dy, dx);
-                        vx += Math.cos(angle) * force * -2.5; // Slightly gentler push
-                        vy += Math.sin(angle) * force * -2.5;
+                        vx += Math.cos(angle) * force * -2;
+                        vy += Math.sin(angle) * force * -2;
                     } else {
-                        // Gentle pullback to original position
-                        vx += (dot.originalX - dot.x) * 0.01;
-                        vy += (dot.originalY - dot.y) * 0.01;
+                        vx += (dot.originalX - dot.x) * 0.005;
+                        vy += (dot.originalY - dot.y) * 0.005;
                     }
 
-                    // Apply velocity damping for smoother motion
-                    vx *= 0.90;
-                    vy *= 0.90;
+                    vx *= 0.92;
+                    vy *= 0.92;
 
                     return {
                         ...dot,
@@ -118,25 +118,38 @@ export default function WhiteDottedBackground() {
             {dots.map(dot => (
                 <div
                     key={dot.id}
-                    className="absolute rounded-full bg-white"
+                    className="absolute rounded-full"
                     style={{
                         left: `${dot.x}px`,
                         top: `${dot.y}px`,
                         width: `${dot.size}px`,
                         height: `${dot.size}px`,
+                        background: dot.color,
                         opacity: dot.opacity,
-                        transition: 'transform 0.3s ease, opacity 0.3s ease', // Smooth transitions
-                        transform: `translate(-50%, -50%)`, // Center dots more nicely
+                        transform: `translate(-50%, -50%)`,
+                        animation: `flicker ${dot.flickerSpeed}s infinite alternate ease-in-out`,
+                        willChange: 'opacity',
                     }}
                 />
             ))}
 
-            {/* Optional content overlay */}
-            <div className="relative z-10 flex items-center justify-center h-full">
-                <div className="text-center p-8">
-                    {/* Place your content here */}
-                </div>
-            </div>
+            {/* Flicker Keyframes */}
+            <style jsx>{`
+                @keyframes flicker {
+                    0% {
+                        opacity: 0.3;
+                        transform: translate(-50%, -50%) scale(1);
+                    }
+                    50% {
+                        opacity: 1;
+                        transform: translate(-50%, -50%) scale(1.1);
+                    }
+                    100% {
+                        opacity: 0.3;
+                        transform: translate(-50%, -50%) scale(1);
+                    }
+                }
+            `}</style>
         </div>
     );
 }
