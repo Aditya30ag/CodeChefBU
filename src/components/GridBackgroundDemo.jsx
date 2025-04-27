@@ -5,6 +5,8 @@ import { ParallaxScrollDemo } from "./ParallaxScrollDemo";
 import { VortexDemo } from "./VortexDemo";
 import SlidingPanel, { GetSetComponent } from "./GetSetComponent";
 import PastEvents from "./PastEvents";
+import DotText from "./HoverTextBlur";
+import Footer from "./Footer";
 
 export function GridBackgroundDemo() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -198,15 +200,23 @@ export function GridBackgroundDemo() {
                 </div>
             </div>
 
-            <div>
+            <div id="about">
                 <VortexDemo />
             </div>
-            <div className="relative z-20 min-h-screen min-w-screen">
+            <div className="relative z-20 min-h-screen min-w-screen" id="team">
                 <ParallaxScrollDemo />
             </div>
-            <div className="min-w-screen  mt-10">
+            <div className="relative min-w-screen  mt-10 z-20 " id="events">
                 <PastEvents />
             </div>
+            <div className="relative min-w-screen z-20 " id="getset">
+                <DotText/>
+            </div>
+            <div>
+                <Footer/>
+            </div>
+            <div className="absolute inset-0 border-4 border-white rounded-lg animate-snake-border  "></div>
+
         </>
 
     );

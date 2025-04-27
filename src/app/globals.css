@@ -91,5 +91,17 @@ body {
 .marquee-content {
   display: flex;
   gap: 2rem; /* Equivalent to Tailwind's space-x-8 */
-  animation: marquee 15s linear infinite;
+  animation: marquee 10s linear infinite;
+}
+@keyframes slide-left {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 20s linear infinite;
 }

@@ -26,7 +26,7 @@ export default function MarqueeWithReflection() {
   const repeatedText = Array(repetitions).fill(textWithSpace);
   
   return (
-    <div className="w-full flex flex-col bg-black py-4">
+    <div className="w-full flex flex-col bg-black py-4 z-100 pointer-events-none">
       {/* Original direction - right to left */}
       <div className="w-full overflow-hidden py-2">
         <motion.div 

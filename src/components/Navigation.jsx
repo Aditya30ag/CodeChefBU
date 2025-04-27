@@ -29,6 +29,24 @@ export function NavbarDemo() {
         },
     ];
 
+    const scrollToSection = (id) => {
+        console.log(id);
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+    
+            // Add 100px offset after smooth scroll
+            window.scrollBy(0, 100); // This will scroll 100px up after scrolling to the section
+        }
+    };
+    
+    const handleLinkClick = (id) => {
+        scrollToSection(id);
+    }
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
@@ -58,7 +76,7 @@ export function NavbarDemo() {
                             <a
                                 key={`mobile-link-${idx}`}
                                 href={item.link}
-                                onClick={() => setIsMobileMenuOpen(false)}
+                                onClick={() => { setIsMobileMenuOpen(false); handleLinkClick(item.link.substring(1)); }}
                                 className="relative text-neutral-600 dark:text-neutral-300">
                                 <span className="block">{item.name}</span>
                             </a>
