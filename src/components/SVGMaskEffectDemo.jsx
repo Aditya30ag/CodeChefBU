@@ -29,7 +29,7 @@ export function SVGMaskEffectDemo() {
     <div className="flex h-screen w-full items-center justify-center overflow-hidden px-4 sm:px-8">
       <div className="relative mx-auto max-w-full sm:max-w-5xl">
         {/* Base text layer */}
-        <p className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent">
+        <p className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold italic text-transparent">
           <span className="bg-clip-text bg-white">
           Code, Compete, Conquer: Empowering Innovators at 
             <br />
@@ -39,7 +39,7 @@ export function SVGMaskEffectDemo() {
 
         {/* 3D highlight layer */}
         <p
-          className="absolute inset-0 text-center text-3xl sm:text-4xl md:text-5xl font-extrabold text-white"
+          className="absolute inset-0 text-center text-3xl sm:text-4xl md:text-5xl font-extrabold italic text-white"
           style={{
             WebkitTextStroke: "1px rgba(255,255,255,0.2)",
             maskImage: `linear-gradient(${mousePosition.x}deg, transparent 25%, white 50%, transparent 75%)`,

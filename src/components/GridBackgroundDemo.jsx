@@ -231,7 +231,7 @@ export function GridBackgroundDemo() {
             <div id="about">
                 <VortexDemo />
             </div>
-            <div className="relative z-20 min-h-screen min-w-screen" id="team">
+            <div className="relative z-20 min-h-screen min-w-screen flex justify-center items-center" id="team">
                 <ParallaxScrollDemo />
             </div>
             <div className="relative min-w-screen  mt-10 z-20 " id="events">

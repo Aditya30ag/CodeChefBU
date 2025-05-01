@@ -26,10 +26,16 @@ export const TextGenerateEffect = ({
         return (
             <motion.div ref={scope} className="flex flex-wrap justify-center">
                 {wordsArray.map((word, idx) => {
+                    const isHeadache = word.toLowerCase().includes("headache");
                     return (
                         <motion.span
                             key={word + idx}
-                            className="dark:text-white text-black opacity-0 text-center mx-1"
+                            className={cn(
+                                "opacity-0 text-center mx-1",
+                                !isHeadache
+                                    ? "dark:text-white text-black font-extrabold italic "
+                                    : "dark:text-white text-black"
+                            )}
                             style={{
                                 filter: filter ? "blur(10px)" : "none",
                             }}>
@@ -40,6 +46,7 @@ export const TextGenerateEffect = ({
             </motion.div>
         );
     };
+    
 
     return (
         <div className={cn("font-bold text-center w-full max-w-4xl mx-auto", className)}>
