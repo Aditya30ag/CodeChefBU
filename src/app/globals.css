@@ -58,9 +58,8 @@ body {
   background: #f1f1f1;
 }
 
-*{
-  cursor: url("/image.png"), auto;
-}
+
+
 
 @theme inline {
   --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
