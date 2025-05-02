@@ -7,6 +7,7 @@ import SlidingPanel, { GetSetComponent } from "./GetSetComponent";
 import PastEvents from "./PastEvents";
 import DotText from "./HoverTextBlur";
 import Footer from "./Footer";
+import { HeroImage, HeroImage1 } from "./HeroImage";
 
 export function GridBackgroundDemo() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -210,6 +211,12 @@ export function GridBackgroundDemo() {
                         >
                             CodeChef BU
                         </p>
+                        <div>
+                            <HeroImage1 />
+                        </div>
+                        <div>
+                            <HeroImage />
+                        </div>
                     </div>
                     <div className="z-40 text-center">
                         <TextGenerateEffectDemo />
@@ -234,7 +241,7 @@ export function GridBackgroundDemo() {
             <div className="relative z-20 min-h-screen min-w-screen flex justify-center items-center" id="team">
                 <ParallaxScrollDemo />
             </div>
-            <div className="relative min-w-screen  mt-10 z-20 " id="events">
+            <div className="relative min-w-screen  mt-10 mb-20 z-20 " id="events">
                 <PastEvents />
             </div>
             <div className="relative min-w-screen z-20 " id="getset">
