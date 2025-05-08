@@ -9,6 +9,7 @@ import DotText from "./HoverTextBlur";
 import Footer from "./Footer";
 import { HeroImage, HeroImage1 } from "./HeroImage";
 import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 
 export function GridBackgroundDemo() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -235,14 +236,7 @@ export function GridBackgroundDemo() {
                     <SlidingPanel />
                 </div>
             </div>
-            <div style={{ position: 'relative', width: '100%', height: '300px' }}>
-            <Image 
-                src="/adi foto.png" 
-                alt="Adi's photo" 
-                fill 
-                style={{ objectFit: 'cover' }} 
-            />
-            </div>
+            
             <div id="about">
                 <VortexDemo />
             </div>
